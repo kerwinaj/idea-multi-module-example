@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - gcmall_5@localhost" uuid="a0d4e2a5-1509-40d7-a51d-f78c4d9a0f17">
+      <secret-storage>master_key</secret-storage>
+      <first-sync>true</first-sync>
+      <user-name>uzone</user-name>
+    </data-source>
+  </component>
+</project>
