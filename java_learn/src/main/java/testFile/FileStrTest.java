@@ -71,10 +71,20 @@ public class FileStrTest {
          * [xyz: see target dir to known the path, target/class is root ]
          */
         InputStream inputStream = getClass().getResourceAsStream("/testFile/input.txt");
-        ReadFileTest.readFromInputStream(inputStream);
+        ReadFileTest.readFromInputStreamDirect(inputStream);
 
         inputStream = FileStrTest.class.getResourceAsStream("/testFile/input.txt");
-        ReadFileTest.readFromInputStreamUseIOUtils(inputStream);
+        ReadFileTest.readFromInputStreamUesBufferedReader(inputStream);
+
+        inputStream = FileStrTest.class.getResourceAsStream("/testFile/input.txt");
+        ReadFileTest.readFromInputStreamUseIOUtils1(inputStream);
+
+        inputStream = FileStrTest.class.getResourceAsStream("/testFile/input.txt");
+        ReadFileTest.readFromInputStreamUseIOUtils2(inputStream);
+
+        inputStream = FileStrTest.class.getResourceAsStream("/testFile/input.txt");
+        ReadFileTest.readFromInputStreamUseCharStreams(inputStream);
+
     }
 
     public void getURLFromFileStr(){
@@ -88,12 +98,14 @@ public class FileStrTest {
             System.out.println(file.getAbsoluteFile());
             ReadFileTest.readFromFileUseScanner(file);
             ReadFileTest.readFromFileUseFileUtils(file);
+            ReadFileTest.readFromFileUseFiles(file);
 
             // get Path
             resourceUrl = FileStrTest.class.getResource("/testFile/input.txt");
             Path resourcePath = url2Path(resourceUrl);
             FileTime lmt = Files.getLastModifiedTime(resourcePath);
             System.out.println(new Date(lmt.toMillis()));
+            ReadFileTest.readFromPath(resourcePath);
 
         } catch (Exception e) {
             e.printStackTrace();
