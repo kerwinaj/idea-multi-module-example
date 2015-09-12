@@ -1,5 +1,7 @@
 package testFile;
 
+import annotation.NotSuggest;
+
 import java.io.File;
 import java.io.InputStream;
 import java.net.URISyntaxException;
@@ -42,6 +44,7 @@ public class FileStrTest {
      * They are automatically copied over to target/test-classes/ folder during test phase.
      * xyz: so don't suggest direct get File or Path from fileStr in maven project, just get InputStream or URL, then use url2File or url2Path.
      */
+    @NotSuggest
     public void getFileFromFileStr(){
         File file = new File("input.txt");
         System.out.println(file.exists()); // false
@@ -56,6 +59,7 @@ public class FileStrTest {
         System.out.println(file.getAbsoluteFile());
     }
 
+    @NotSuggest
     public void getPathFromFileStr(){
         Path path = Paths.get("/home/yukai/git/idea-multi-module-example/java_learn/src/main/resources/testFile/input.txt");
         System.out.println(path.getFileName());
